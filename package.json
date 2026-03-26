@@ -20,5 +20,24 @@
   "bugs": {
     "url": "https://github.com/klimarrc/back-end_development_Assignment_05_Kailine/issues"
   },
-  "homepage": "https://github.com/klimarrc/back-end_development_Assignment_05_Kailine#readme"
+  "homepage": "https://github.com/klimarrc/back-end_development_Assignment_05_Kailine#readme",
+  "devDependencies": {
+    "@redocly/cli": "^2.25.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "@types/morgan": "^1.9.10",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.7.0",
+    "helmet": "^8.1.0",
+    "joi": "^18.1.1",
+    "morgan": "^1.10.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
 }
