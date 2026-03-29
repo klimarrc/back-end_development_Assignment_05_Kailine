@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "generate-docs": "ts-node scripts/generate-openapi.ts && npx @redocly/cli build-docs openapi.json --output docs/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,9 +23,10 @@
   },
   "homepage": "https://github.com/klimarrc/back-end_development_Assignment_05_Kailine#readme",
   "devDependencies": {
-    "@redocly/cli": "^2.25.1",
+    "@redocly/cli": "^2.25.2",
     "@types/express": "^5.0.6",
     "@types/node": "^25.5.0",
+    "@types/swagger-ui-express": "^4.1.8",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.2"
   },
