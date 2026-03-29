@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import eventPostRoutes from "./api/v1/routes/eventPostRoutes";
 import morgan from "morgan";
+import setupSwagger from "./config/swagger";
 
 
 
@@ -32,4 +33,4 @@ app.get("/api/v1/health", (req, res) => {
 app.use("/api/v1/events", eventPostRoutes);
 
 // Export the app
-export default app;
+setupSwagger(app);
