@@ -1,10 +1,16 @@
 import express, { Express } from "express";
+import dotenv from "dotenv";
+// Load environment variables BEFORE your internal imports!
+dotenv.config();
+
+
 import eventPostRoutes from "./api/v1/routes/eventPostRoutes";
 import morgan from "morgan";
 import setupSwagger from "./config/swagger";
 
 
-
+// Load environment variables BEFORE your internal imports!
+dotenv.config();
 
 const app: Express = express();
 app.set("json spaces", 2); // set JSON response indentation to 2 spaces for readability
@@ -34,3 +40,4 @@ app.use("/api/v1/events", eventPostRoutes);
 
 // Export the app
 setupSwagger(app);
+export default app;
