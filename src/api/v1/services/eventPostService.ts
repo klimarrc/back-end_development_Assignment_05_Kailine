@@ -1,4 +1,4 @@
-import { db } from "../../../../config/firebaseConfig";
+import { db } from "../../../config/firebaseConfig";
 import { EventCategory, events, EventStatus } from "../models/eventPostModel";
 import * as firestoreRepository from "../repositories/firestoreRepository";
 const COLLECTION = "posts";
