@@ -1,4 +1,5 @@
 import express, { Express } from "express";
+import helmet from "helmet";
 import dotenv from "dotenv";
 // Load environment variables BEFORE your internal imports!
 dotenv.config();
@@ -13,6 +14,10 @@ import setupSwagger from "./config/swagger";
 dotenv.config();
 
 const app: Express = express();
+
+
+app.use(helmet()); // Apply basic Helmet security
+
 app.set("json spaces", 2); // set JSON response indentation to 2 spaces for readability
 
 app.use(express.json()); //  use JSON body parsing
