@@ -1,4 +1,4 @@
-import fs from "fs";
+import * as fs from "fs";
 import { generateSwaggerSpec } from "../src/config/swaggerOptions";
 
 // Get the specs using our shared configuration

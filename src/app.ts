@@ -1,5 +1,5 @@
 import express, { Express } from "express";
-import helmet from "helmet";
+import helmet, { hidePoweredBy } from "helmet";
 import dotenv from "dotenv";
 // Load environment variables BEFORE your internal imports!
 dotenv.config();
@@ -16,7 +16,24 @@ dotenv.config();
 const app: Express = express();
 
 
-app.use(helmet()); // Apply basic Helmet security
+app.use(helmet({
+  contentSecurityPolicy: false, // APIs return JSON, not HTML
+  crossOriginEmbedderPolicy: false,
+  referrerPolicy: {
+    policy: "no-referrer",
+  },
+  frameguard: {
+    action: "deny",
+  },
+  hsts: {
+    maxAge: 31536000, // 1 year
+    includeSubDomains: true,
+    preload: true,
+  },
+  xssFilter: true,
+  noSniff: true,
+  hidePoweredBy: true,
+})); // Apply basic Helmet security
 
 app.set("json spaces", 2); // set JSON response indentation to 2 spaces for readability
 
@@ -28,17 +45,17 @@ app.use(morgan("combined")); //  use morgan for logging
 
 // GET request at the app root
 app.get("/", (req, res) => {
-    res.send("Hello, World!");
+  res.send("Hello, World!");
 });
 
 // Health check route
 app.get("/api/v1/health", (req, res) => {
-    res.status(200).json({
-        status: "OK",
-        uptime: process.uptime(),
-        timestamp: new Date().toISOString(),
-        version: "1.0.0",
-    });
+  res.status(200).json({
+    status: "OK",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+    version: "1.0.0",
+  });
 });
 
 app.use("/api/v1/events", eventPostRoutes);

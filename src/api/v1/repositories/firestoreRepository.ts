@@ -1,5 +1,5 @@
 
-import { db } from "../../../../config/firebaseConfig";
+import { db } from "../../../config/firebaseConfig";
 import { Timestamp } from "firebase-admin/firestore";
 
 const tsToIso = (v: any) => {
